@@ -10,3 +10,7 @@
 ## Current Goal
 
 Learn Git visually in PyCharm
+
+## Remote Practice
+
+This line was added directly on GitHub.
