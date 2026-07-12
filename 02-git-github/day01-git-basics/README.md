@@ -9,4 +9,4 @@
 
 ## Current Goal
 
-Learn Git with PyCharm.
+Learn Git branches and merge conflicts.
