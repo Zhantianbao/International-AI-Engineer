@@ -9,4 +9,4 @@
 
 ## Current Goal
 
-Learn Git visually in PyCharm, including branches and merge conflicts.
+Learn Git visually in PyCharm
