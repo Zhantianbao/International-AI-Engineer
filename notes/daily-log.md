@@ -455,3 +455,96 @@ Start Git basics:
 - `git diff`
 - `git log`
 - `.gitignore`
+## 2026-07-12 — Git and GitHub Basics
+
+### Goal
+Complete Git and GitHub basic workflow practice using PyCharm.
+
+### Minimum Success
+- Understand the relationship between the working directory, staging area, local repository, and remote repository.
+- Complete the basic workflow of commit, push, pull, branch, merge, and pull request.
+- Learn how to use Git mainly through PyCharm visual tools.
+
+### Done
+- Initialized the project as a Git repository.
+- Created a root-level `.gitignore`.
+- Ignored local and sensitive files:
+  - `.env`
+  - `.venv/`
+  - `.idea/`
+  - `__pycache__/`
+  - `*.pyc`
+  - `report.json`
+- Completed the first local commit.
+- Published the project to GitHub.
+- Learned the difference between:
+  - `Commit`
+  - `Push`
+  - `Pull`
+  - `Fetch`
+- Renamed the main branch from `master` to `main`.
+- Learned that Git tracks files rather than empty folders.
+- Learned how to view changed files and compare differences in PyCharm.
+- Practiced restoring uncommitted changes.
+- Practiced creating and switching branches.
+- Created the branch:
+  - `practice/git-branch`
+- Added Git learning notes on the practice branch.
+- Merged the practice branch into `main`.
+- Practiced resolving a merge conflict.
+- Learned how local `main` and remote `origin/main` are synchronized.
+- Modified a file directly on GitHub and pulled the remote change into PyCharm.
+- Created the feature branch:
+  - `feature/add-git-workflow-notes`
+- Pushed the feature branch to GitHub.
+- Created a pull request.
+- Reviewed the changed files in the pull request.
+- Merged the pull request into `main`.
+- Deleted the completed feature branch.
+- Pulled the updated remote `main` branch back to the local repository.
+
+### Key Concepts
+- The working directory contains current file changes.
+- The staging area contains changes selected for the next commit.
+- A commit saves a project version in the local Git repository.
+- Push uploads local commits to GitHub.
+- Pull downloads and integrates remote changes.
+- Fetch updates remote repository information without immediately merging it.
+- A branch is an independent development line.
+- Merge combines changes from one branch into another.
+- A merge conflict occurs when Git cannot automatically combine different changes.
+- A pull request is a request to review and merge one branch into another.
+- `main` usually stores the stable version of a project.
+- `origin` is the conventional name of the main remote repository.
+- `origin/main` represents the remote-tracking version of the GitHub `main` branch.
+- Git tracks files, not empty directories.
+- PyCharm Git operations still use Git internally.
+
+### Problems
+- I was confused about the meaning of the remote name `origin`.
+- I needed to understand why the local branch was renamed to `main` while the remote branch was still `master`.
+- I was confused about the relationship between local branches and remote branches.
+- I needed to understand why the entire `02-git-github` folder disappeared after switching branches.
+- I was unsure whether PyCharm visual Git operations could replace command-line operations.
+- I needed to understand the difference between local merge and GitHub pull request merge.
+- I needed more explanation about `Push`, `Pull`, and `Fetch`.
+
+### Reflection
+Today I completed my first full Git and GitHub workflow. I learned that Git is not only used to upload code, but also to record project history, isolate development with branches, merge changes, resolve conflicts, and collaborate through pull requests. I also learned that PyCharm visual tools can handle most daily Git operations, while understanding the corresponding Git concepts is still important for troubleshooting and remote development.
+
+### Tomorrow
+- Start GitHub repository and profile optimization.
+- Improve the root `README.md`.
+- Learn how to write a clear project introduction.
+- Add:
+  - project overview
+  - learning roadmap
+  - repository structure
+  - completed projects
+  - technology stack
+- Learn basic GitHub features:
+  - Issues
+  - Fork
+  - Star
+  - Tags
+  - Releases
