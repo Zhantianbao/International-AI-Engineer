@@ -9,4 +9,4 @@
 
 ## Current Goal
 
-Learn Git with PyCharm.
+Learn Git visually in PyCharm.
