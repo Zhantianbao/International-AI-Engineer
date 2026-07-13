@@ -548,3 +548,104 @@ Today I completed my first full Git and GitHub workflow. I learned that Git is n
   - Star
   - Tags
   - Releases
+
+
+## 2026-07-13 — GitHub Profile and Project Management
+
+### Goal
+Build a clear GitHub developer profile and learn how GitHub features can be used to present projects and manage future work.
+
+### Minimum Success
+- Create a GitHub Profile README.
+- Improve the public presentation of my repositories.
+- Create and manage a real GitHub Issue.
+- Publish the first Tag and Release.
+- Create a GitHub Projects roadmap.
+
+### Done
+- Created the special `zhantianbao91/zhantianbao91` repository.
+- Built the first version of my GitHub Profile README.
+- Added a clear personal introduction.
+- Described my current learning focus and career direction.
+- Added the GitHub Profile Analyzer as a featured project.
+- Added my learning roadmap and technology stack.
+- Added the `International-AI-Engineer` repository to my pinned repositories.
+- Added repository descriptions and Topics.
+- Learned the purpose of the main GitHub repository sections:
+  - Code
+  - Issues
+  - Pull requests
+  - Agents
+  - Actions
+  - Projects
+  - Wiki
+  - Security and quality
+  - Insights
+  - Settings
+- Learned the difference between:
+  - Repository Description
+  - Profile README
+  - Repository README
+- Created the Issue:
+  - `Improve GitHub profile portfolio`
+- Assigned the Issue to myself.
+- Used a task checklist to record progress.
+- Added the real Issue to a GitHub Project.
+- Created the GitHub Project:
+  - `International AI Engineer Roadmap`
+- Used the following Project statuses:
+  - Todo
+  - In Progress
+  - Done
+- Added completed and future learning stages to the Project.
+- Learned the difference between a Draft issue and a Repository issue.
+- Created the first Git Tag:
+  - `v0.1.0`
+- Published the first GitHub Release:
+  - `Python Foundation and GitHub Basics Completed`
+- Learned the relationship between:
+  - Commit
+  - Branch
+  - Tag
+  - Release
+- Learned the purpose of:
+  - Releases
+  - Deployments
+  - Packages
+- Learned what `.tar.gz` means and how it differs from `.zip`.
+
+### Key Concepts
+- A GitHub Profile README introduces the developer rather than a single project.
+- A repository Description is a short public summary shown before visitors open the README.
+- Topics help visitors and GitHub understand the subject of a repository.
+- Pinned repositories highlight the most important work on a profile.
+- An Issue is a formal task, problem, or improvement request associated with a repository.
+- A Draft issue is a lightweight task that exists only inside a GitHub Project.
+- A GitHub Project organizes Issues, Pull Requests, and Draft issues using tables, boards, or roadmaps.
+- A Tag permanently marks a specific Commit.
+- A Release adds a public version page, release notes, and downloadable source archives around a Tag.
+- A Deployment represents a version of an application running in an environment.
+- A Package is an installable artifact such as a Python package or Docker image.
+- `.tar` archives multiple files, while `gzip` compresses the archive.
+- `.tar.gz` therefore means a tar archive compressed with gzip.
+
+### Problems
+- I needed to understand the purpose of each major GitHub repository tab.
+- I was unsure whether repository descriptions were public.
+- I needed to distinguish Releases, Deployments, and Packages.
+- I was confused about the relationship between Tags and Releases.
+- I needed to understand the purpose of `.tar.gz` source archives.
+- Adding too many detailed tasks made the Project board difficult to manage.
+- I needed to distinguish roadmap-level tasks from detailed Issue checklists.
+- I needed to understand the difference between Draft issues and real repository Issues.
+
+### Reflection
+Today I changed my GitHub account from a simple code storage space into the beginning of a developer portfolio. I learned that a strong GitHub profile should clearly present my identity, direction, current projects, and learning progress. I also learned how Issues and Projects can be used to organize work, while Tags and Releases can mark important project milestones. I should continue keeping the information accurate and only claim technologies that I have genuinely used.
+
+### Tomorrow
+- Complete the remaining GitHub profile improvements.
+- Close or update the current profile Issue when appropriate.
+- Begin `03-linux`.
+- Learn the Linux terminal and command structure.
+- Practice paths, files, and directory operations.
+- Understand why Linux is widely used for backend and AI deployment.
