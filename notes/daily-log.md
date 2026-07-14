@@ -649,3 +649,85 @@ Today I changed my GitHub account from a simple code storage space into the begi
 - Learn the Linux terminal and command structure.
 - Practice paths, files, and directory operations.
 - Understand why Linux is widely used for backend and AI deployment.
+
+
+# Daily Log
+
+## 2026-07-14
+
+### Completed
+
+- Started Linux learning module.
+- Learned Linux filesystem structure:
+  - root directory (/)
+  - home directory (~)
+  - parent directory (..)
+  - current directory (.)
+
+- Practiced basic Linux commands:
+  - pwd
+  - ls
+  - cd
+  - touch
+  - cat
+  - cp
+  - mv
+  - rm
+
+- Learned file and directory management:
+  - mkdir
+  - rmdir
+  - tree
+  - find
+  - grep
+  - head
+  - tail
+  - wc
+
+- Learned Linux permission system:
+  - read (r)
+  - write (w)
+  - execute (x)
+  - chmod
+  - user
+  - group
+  - others
+
+- Learned Linux user management basics:
+  - uid
+  - gid
+  - groups
+  - sudo group
+
+- Learned environment variables:
+  - PATH
+  - echo
+  - which
+
+- Practiced Git workflow on Linux:
+  - git status
+  - git add
+  - git commit
+  - git push
+
+### Problems Solved
+
+- Understood why touch does not overwrite existing files.
+- Understood the difference between user and group in Linux permissions.
+- Understood how PATH helps Linux find executable programs.
+- Learned why chmod +x affects file execution permissions.
+
+### Project Progress
+
+- Added Linux learning notes to GitHub repository.
+- Created Linux practice directory structure.
+- Completed first Linux learning milestone.
+
+### Next Plan
+
+- Continue Linux learning:
+  - package management
+  - processes
+  - networking
+  - shell scripting
+  - Python environment setup
