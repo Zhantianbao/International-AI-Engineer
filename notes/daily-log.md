@@ -731,3 +731,86 @@ Today I changed my GitHub account from a simple code storage space into the begi
   - networking
   - shell scripting
   - Python environment setup
+
+
+# 2026-07-15
+
+### Goal
+
+Learn Linux process management and basic shell concepts.
+
+### Minimum Success
+
+- Understand Linux processes and how to inspect them.
+- Learn basic process control commands.
+- Understand file descriptors, redirection and pipes.
+
+### Done
+
+- Learned how Linux processes work and the relationship between programs and processes.
+- Learned how to use `ps`, `ps aux`, `ps -ef` to view processes.
+- Understood important process information:
+  - PID
+  - PPID
+  - TTY
+  - TIME
+  - CMD
+- Learned how to view process relationships using `pstree`.
+- Practiced creating and managing processes with:
+  - `sleep`
+  - `kill`
+  - `kill -9`
+  - `killall`
+- Learned shell job management:
+  - background processes with `&`
+  - `jobs`
+  - `fg`
+  - `bg`
+- Learned how to monitor system resources using `top`.
+- Learned the `/proc` virtual filesystem and how to inspect process information.
+- Learned file descriptors:
+  - stdin (0)
+  - stdout (1)
+  - stderr (2)
+- Learned shell redirection:
+  - `>`
+  - `2>`
+  - `2>&1`
+- Learned how pipes connect commands:
+  - `|`
+- Understood that shell commands communicate through file descriptors.
+
+### Key Concepts
+
+- A process is a running instance of a program.
+- PID identifies a process, while PPID shows the parent process.
+- Linux processes form a tree structure.
+- Shell controls processes through signals and job management.
+- File descriptors are the connection between processes and files/devices.
+- stdin, stdout and stderr are standard communication channels.
+- Redirection changes where a process reads input or sends output.
+- A pipe connects one process's stdout to another process's stdin.
+- Linux command usage is based on understanding the underlying process and I/O model.
+
+### Problems
+
+- Initially confused the meaning of some `ps` fields such as TTY, TIME and CMD.
+- Needed to understand why some command options use `-` while others do not.
+- Needed clarification about the difference between job ID and PID.
+- Initially misunderstood why `>` only redirects stdout but not stderr.
+- Needed more explanation about how `2>&1` works internally.
+- Needed to understand why `grep` appears in commands like `ps aux | grep sleep`.
+
+### Reflection
+
+Today I moved from simply using Linux commands to understanding how the shell and operating system work internally.
+
+By learning processes, file descriptors, redirection and pipes, I started understanding the mechanism behind common Linux commands instead of only memorizing syntax.
+
+This knowledge will help with future server deployment and AI application development.
+
+### Tomorrow
+
+- Learn Linux filesystem structure.
+- Understand users, groups and permission management.
+- Practice common file and permission commands.
