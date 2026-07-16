@@ -651,6 +651,172 @@ Today I changed my GitHub account from a simple code storage space into the begi
 - Understand why Linux is widely used for backend and AI deployment.
 
 
+# Daily Log
+
+## 2026-07-14
+
+### Completed
+
+- Started Linux learning module.
+- Learned Linux filesystem structure:
+  - root directory (/)
+  - home directory (~)
+  - parent directory (..)
+  - current directory (.)
+
+- Practiced basic Linux commands:
+  - pwd
+  - ls
+  - cd
+  - touch
+  - cat
+  - cp
+  - mv
+  - rm
+
+- Learned file and directory management:
+  - mkdir
+  - rmdir
+  - tree
+  - find
+  - grep
+  - head
+  - tail
+  - wc
+
+- Learned Linux permission system:
+  - read (r)
+  - write (w)
+  - execute (x)
+  - chmod
+  - user
+  - group
+  - others
+
+- Learned Linux user management basics:
+  - uid
+  - gid
+  - groups
+  - sudo group
+
+- Learned environment variables:
+  - PATH
+  - echo
+  - which
+
+- Practiced Git workflow on Linux:
+  - git status
+  - git add
+  - git commit
+  - git push
+
+### Problems Solved
+
+- Understood why touch does not overwrite existing files.
+- Understood the difference between user and group in Linux permissions.
+- Understood how PATH helps Linux find executable programs.
+- Learned why chmod +x affects file execution permissions.
+
+### Project Progress
+
+- Added Linux learning notes to GitHub repository.
+- Created Linux practice directory structure.
+- Completed first Linux learning milestone.
+
+### Next Plan
+
+- Continue Linux learning:
+  - package management
+  - processes
+  - networking
+  - shell scripting
+  - Python environment setup
+
+
+# 2026-07-15
+
+### Goal
+
+Learn Linux process management and basic shell concepts.
+
+### Minimum Success
+
+- Understand Linux processes and how to inspect them.
+- Learn basic process control commands.
+- Understand file descriptors, redirection and pipes.
+
+### Done
+
+- Learned how Linux processes work and the relationship between programs and processes.
+- Learned how to use `ps`, `ps aux`, `ps -ef` to view processes.
+- Understood important process information:
+  - PID
+  - PPID
+  - TTY
+  - TIME
+  - CMD
+- Learned how to view process relationships using `pstree`.
+- Practiced creating and managing processes with:
+  - `sleep`
+  - `kill`
+  - `kill -9`
+  - `killall`
+- Learned shell job management:
+  - background processes with `&`
+  - `jobs`
+  - `fg`
+  - `bg`
+- Learned how to monitor system resources using `top`.
+- Learned the `/proc` virtual filesystem and how to inspect process information.
+- Learned file descriptors:
+  - stdin (0)
+  - stdout (1)
+  - stderr (2)
+- Learned shell redirection:
+  - `>`
+  - `2>`
+  - `2>&1`
+- Learned how pipes connect commands:
+  - `|`
+- Understood that shell commands communicate through file descriptors.
+
+### Key Concepts
+
+- A process is a running instance of a program.
+- PID identifies a process, while PPID shows the parent process.
+- Linux processes form a tree structure.
+- Shell controls processes through signals and job management.
+- File descriptors are the connection between processes and files/devices.
+- stdin, stdout and stderr are standard communication channels.
+- Redirection changes where a process reads input or sends output.
+- A pipe connects one process's stdout to another process's stdin.
+- Linux command usage is based on understanding the underlying process and I/O model.
+
+### Problems
+
+- Initially confused the meaning of some `ps` fields such as TTY, TIME and CMD.
+- Needed to understand why some command options use `-` while others do not.
+- Needed clarification about the difference between job ID and PID.
+- Initially misunderstood why `>` only redirects stdout but not stderr.
+- Needed more explanation about how `2>&1` works internally.
+- Needed to understand why `grep` appears in commands like `ps aux | grep sleep`.
+
+### Reflection
+
+Today I moved from simply using Linux commands to understanding how the shell and operating system work internally.
+
+By learning processes, file descriptors, redirection and pipes, I started understanding the mechanism behind common Linux commands instead of only memorizing syntax.
+
+This knowledge will help with future server deployment and AI application development.
+
+### Tomorrow
+
+- Learn Linux filesystem structure.
+- Understand users, groups and permission management.
+- Practice common file and permission commands.
+
+
+
 # 2026-07-16
 
 ### Goal
@@ -663,28 +829,28 @@ Create a Python virtual environment, install a third-party package, and restore 
 
 ### Done
 
-* Reviewed APT package management concepts.
-* Installed `python3-pip` and `python3.10-venv`.
-* Checked the system Python and pip locations.
-* Created and activated a `.venv` virtual environment.
-* Verified that activation modifies `PATH`.
-* Installed `requests` and its dependencies.
-* Created and ran a Python HTTP request demo.
-* Generated `requirements.txt`.
-* Deleted and successfully rebuilt the virtual environment.
-* Added `.venv/` to `.gitignore`.
-* Created the branch `linux/day03-python-environment`.
-* Added Day03 learning notes.
+- Reviewed APT package management concepts.
+- Installed `python3-pip` and `python3.10-venv`.
+- Checked the system Python and pip locations.
+- Created and activated a `.venv` virtual environment.
+- Verified that activation modifies `PATH`.
+- Installed `requests` and its dependencies.
+- Created and ran a Python HTTP request demo.
+- Generated `requirements.txt`.
+- Deleted and successfully rebuilt the virtual environment.
+- Added `.venv/` to `.gitignore`.
+- Created the branch `linux/day03-python-environment`.
+- Added Day03 learning notes.
 
 ### Key Concepts
 
-* `python3 -m pip` ensures that pip belongs to the selected Python interpreter.
-* `source` executes a script inside the current Shell.
-* Activating a virtual environment places `.venv/bin` at the beginning of `PATH`.
-* `deactivate` restores the Shell environment that existed before activation.
-* A virtual environment isolates project dependencies.
-* `requirements.txt` records dependency versions so the environment can be rebuilt.
-* `.venv` should remain local and should not be committed to Git.
+- `python3 -m pip` ensures that pip belongs to the selected Python interpreter.
+- `source` executes a script inside the current Shell.
+- Activating a virtual environment places `.venv/bin` at the beginning of `PATH`.
+- `deactivate` restores the Shell environment that existed before activation.
+- A virtual environment isolates project dependencies.
+- `requirements.txt` records dependency versions so the environment can be rebuilt.
+- `.venv` should remain local and should not be committed to Git.
 
 ### Problems
 
