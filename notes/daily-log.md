@@ -814,3 +814,52 @@ This knowledge will help with future server deployment and AI application develo
 - Learn Linux filesystem structure.
 - Understand users, groups and permission management.
 - Practice common file and permission commands.
+
+
+
+# 2026-07-16
+
+### Goal
+
+Learn Linux package management and build an isolated Python development environment.
+
+### Minimum Success
+
+Create a Python virtual environment, install a third-party package, and restore the environment from `requirements.txt`.
+
+### Done
+
+- Reviewed APT package management concepts.
+- Installed `python3-pip` and `python3.10-venv`.
+- Checked the system Python and pip locations.
+- Created and activated a `.venv` virtual environment.
+- Verified that activation modifies `PATH`.
+- Installed `requests` and its dependencies.
+- Created and ran a Python HTTP request demo.
+- Generated `requirements.txt`.
+- Deleted and successfully rebuilt the virtual environment.
+- Added `.venv/` to `.gitignore`.
+- Created the branch `linux/day03-python-environment`.
+- Added Day03 learning notes.
+
+### Key Concepts
+
+- `python3 -m pip` ensures that pip belongs to the selected Python interpreter.
+- `source` executes a script inside the current Shell.
+- Activating a virtual environment places `.venv/bin` at the beginning of `PATH`.
+- `deactivate` restores the Shell environment that existed before activation.
+- A virtual environment isolates project dependencies.
+- `requirements.txt` records dependency versions so the environment can be rebuilt.
+- `.venv` should remain local and should not be committed to Git.
+
+### Problems
+
+The first virtual environment creation failed because the required `ensurepip` component was unavailable. Installing `python3.10-venv` solved the problem.
+
+### Reflection
+
+Rebuilding the environment helped me understand that the virtual environment itself is disposable. The important files are the source code and dependency declaration.
+
+### Tomorrow
+
+Learn Bash scripting, variables, conditions, arguments, loops, and basic automation.
