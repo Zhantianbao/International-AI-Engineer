@@ -863,3 +863,79 @@ Rebuilding the environment helped me understand that the virtual environment its
 ### Tomorrow
 
 Learn Bash scripting, variables, conditions, arguments, loops, and basic automation.
+
+
+
+# 2026-07-17
+
+### Goal
+
+Learn Bash scripting fundamentals and use Bash to automate Linux development environment checks and Python project setup.
+
+### Minimum Success
+
+Understand Bash variables, quoting, command substitution, exit status, arguments, conditions, loops, and functions, and complete at least one practical automation script.
+
+### Done
+
+- Learned what Bash and shell scripting are.
+- Understood Bash as a command interpreter and automation tool.
+- Created and executed Bash scripts with shebang lines.
+- Compared `bash script.sh` with `./script.sh`.
+- Practiced execution permissions with `chmod`.
+- Learned Bash variable assignment and expansion.
+- Practiced single quotes, double quotes, and command substitution.
+- Learned exit status with `$?`.
+- Practiced `&&` and `||`.
+- Learned positional parameters including `$0`, `$1`, `$#`, and `$@`.
+- Practiced `if`, `else`, `for`, and `while`.
+- Created and called Bash functions.
+- Created `environment-check.sh`.
+- Checked the current user and working directory.
+- Checked Python and Git installation and versions.
+- Checked virtual environment status.
+- Checked required project files.
+- Created `setup-project.sh`.
+- Automatically created a Python virtual environment.
+- Installed dependencies from `requirements.txt`.
+- Verified that `requests` could be imported.
+- Verified the installed `requests` version.
+- Created Linux Day04 learning notes.
+
+### Key Concepts
+
+- Bash command interpretation
+- Shell scripting and automation
+- Shebang
+- Execution permissions
+- Variable assignment and expansion
+- Single and double quotes
+- Command substitution
+- Exit status
+- Positional parameters
+- Conditional statements
+- File and directory tests
+- `for` and `while` loops
+- Bash functions
+- Local variables
+- Command detection with `command -v`
+- Virtual environment detection
+- Automated dependency installation
+- Bash syntax checking with `bash -n`
+
+### Problems
+
+- Misspelled several file names and variable names.
+- Forgot closing quotation marks in Bash scripts.
+- Confused command substitution `$(...)` with parameter expansion `${...}`.
+- Missed required spaces around the `[` test command.
+- Encountered `unexpected EOF` errors because quotation marks were not matched.
+- Corrected the errors by inspecting the scripts with `cat` and checking syntax with `bash -n`.
+
+### Reflection
+
+Bash syntax is sensitive to spaces, quotation marks, and variable expansion syntax. I now understand that Bash conditions are based on command exit status rather than Boolean expressions alone. Functions make automation scripts easier to read and maintain. Running `bash -n` before executing a script is an effective way to detect syntax errors safely.
+
+### Tomorrow
+
+Learn Linux services and logs, including processes managed by `systemd`, service status inspection, and practical log troubleshooting.
