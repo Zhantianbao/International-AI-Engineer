@@ -939,3 +939,81 @@ Bash syntax is sensitive to spaces, quotation marks, and variable expansion synt
 ### Tomorrow
 
 Learn Linux services and logs, including processes managed by `systemd`, service status inspection, and practical log troubleshooting.
+
+
+# 2026-07-18
+
+### Goal
+
+Understand Linux long-running processes, system services, systemd management, service logs, output redirection, and basic service troubleshooting.
+
+### Minimum Success
+
+Manage a safe Linux service, inspect its logs, redirect Python application output, and run and monitor a long-running process.
+
+### Done
+
+- Reviewed the relationship between programs, processes, daemons, background processes, and services.
+- Understood why backend applications need long-running service management.
+- Confirmed that systemd runs as PID 1.
+- Inspected cron.service and its main process.
+- Practiced `systemctl status`, `start`, `stop`, and `restart`.
+- Practiced `systemctl enable` and `disable`.
+- Understood the difference between immediate startup and startup at system boot.
+- Observed that restarting a service creates a new process PID.
+- Learned the role of systemd-journald and the journal.
+- Practiced `journalctl`, `journalctl -u`, `journalctl -f`, and `journalctl --since`.
+- Read and interpreted cron service log entries.
+- Understood how logs help diagnose service failures.
+- Reviewed stdin, stdout, stderr, and file descriptors.
+- Redirected stdout and stderr into separate log files.
+- Redirected stdout and stderr into one combined log file.
+- Observed how output buffering can change log ordering.
+- Learned the purpose of `flush=True` and Python unbuffered mode.
+- Created `logging-demo.py`.
+- Created `long-running-app.py`.
+- Ran the long-running application in the foreground and background.
+- Used `jobs`, `pgrep`, and `ps` to monitor the process.
+- Used `tail` to inspect application logs.
+- Used SIGINT to stop the application cleanly.
+- Restarted the application and confirmed that it received a new PID.
+- Learned the basic workflow for checking processes, service status, logs, and listening ports.
+- Created Linux Day05 learning notes.
+
+### Key Concepts
+
+- Program, process, daemon, and service
+- Background jobs
+- systemd
+- systemctl
+- Service startup and boot enablement
+- systemd-journald
+- journalctl
+- Service logs
+- stdin, stdout, and stderr
+- File descriptors
+- Shell redirection
+- Output buffering
+- Long-running processes
+- PID files
+- Process signals
+- Service troubleshooting
+- Listening ports
+
+### Problems
+
+- Misspelled `cron` as `corn`.
+- Mixed single and double quotation marks in a Shell command.
+- Added spaces between file descriptor numbers and redirection operators.
+- Wrote `2&1` instead of `2>&1`, which created two background jobs.
+- Misspelled the PID filename as `long-running-aoo.pid`.
+- Observed stdout and stderr appearing in an unexpected order because stdout was buffered.
+- Initially expanded the listening-port practice into HTTP topics that belong to a later module.
+
+### Reflection
+
+I now understand that a running process, a managed service, and a listening network service are related but different concepts. Service troubleshooting should proceed layer by layer instead of relying on only one command. Logs provide the context needed to explain why a service stopped or failed. File descriptors allow normal output and error output to be managed separately. Background execution with `&` is useful for practice, but production applications require a reliable service manager.
+
+### Tomorrow
+
+Continue with the next planned Linux module without expanding prematurely into the HTTP and API module.
