@@ -1017,3 +1017,108 @@ I now understand that a running process, a managed service, and a listening netw
 ### Tomorrow
 
 Continue with the next planned Linux module without expanding prematurely into the HTTP and API module.
+
+
+# 2026-07-19
+
+### Goal
+
+Understand Linux networking fundamentals and learn how to inspect and diagnose basic backend service connectivity problems.
+
+### Minimum Success
+
+Inspect local network information, understand IP addresses and ports, start a local HTTP service, identify its listening process, and test it with curl.
+
+### Done
+
+- Created the `linux/day06-networking` branch and Day06 directory.
+- Learned the relationship between IP addresses, ports, processes, sockets, and network services.
+- Understood the difference between a network card and a network interface.
+- Learned the purpose of MAC addresses and Ethernet.
+- Inspected network interfaces and addresses with `ip addr`.
+- Identified the loopback interface `lo` and the VirtualBox Ethernet interface `enp0s3`.
+- Identified the local IPv4 address `10.0.2.15/24`.
+- Identified the MAC address of `enp0s3`.
+- Checked the hostname with `hostname` and local addresses with `hostname -I`.
+- Inspected the routing table with `ip route`.
+- Identified the VirtualBox default gateway `10.0.2.2`.
+- Understood private IP addresses, public IP addresses, and NAT.
+- Used `ping` to test:
+  - `127.0.0.1`
+  - `10.0.2.15`
+  - `10.0.2.2`
+  - `1.1.1.1`
+- Learned how ICMP echo requests, packet loss, TTL, and round-trip time work.
+- Learned the difference between domain names, hostnames, DNS, and name resolution.
+- Practiced hostname resolution with `getent hosts`.
+- Inspected TCP listening sockets with `ss -lt`, `ss -ltn`, and `ss -ltnp`.
+- Understood the relationship between a PID, a listening socket, a port, and a network service.
+- Started a local HTTP service with `python3 -m http.server`.
+- Bound the HTTP service to `127.0.0.1:8000`.
+- Saved and inspected the HTTP server PID.
+- Identified which Python process was using port `8000`.
+- Tested the HTTP service with:
+  - `curl URL`
+  - `curl -I URL`
+  - `curl -v URL`
+- Learned the structure of an HTTP request and response.
+- Identified HTTP methods, status codes, headers, and response bodies.
+- Inspected HTTP server access logs.
+- Stopped the HTTP service and confirmed that port `8000` was no longer listening.
+- Reproduced and diagnosed a `Connection refused` error.
+- Reproduced and diagnosed an `Address already in use` port conflict.
+- Completed the basic backend service diagnosis workflow.
+
+### Key Concepts
+
+- Network interface
+- Network card
+- MAC address
+- Ethernet
+- IPv4 and IPv6
+- Loopback interface
+- localhost
+- Private IP address
+- Public IP address
+- NAT
+- Routing table
+- Default gateway
+- ICMP
+- ping
+- TTL
+- Round-trip time
+- Hostname
+- Domain name
+- DNS
+- Name resolution
+- Socket
+- Listening port
+- PID
+- Network service
+- HTTP request
+- HTTP response
+- Status code
+- Response headers
+- Response body
+- curl
+- Connection refused
+- Port conflict
+
+### Problems
+
+- Initially confused network interfaces with physical network cards.
+- Needed clarification about the relationship between sockets and ports.
+- Confused the IP address bits with the subnet-mask prefix in `/8`.
+- Initially treated hostname resolution as exactly equivalent to DNS lookup.
+- Misspelled the `http_pid` variable when checking its value.
+- Used `echo http_pid` without `$`, which printed the variable name instead of its value.
+- The proxy returned a special fake IP address when resolving `example.com`.
+- A second HTTP server could not bind to port `8000` because the first server was already using it.
+
+### Reflection
+
+I now understand network access as a layered process. An IP address identifies a host or interface, a port identifies an application endpoint, and a process creates a socket to listen on that address and port. A running process does not automatically mean that a network service is ready, so I should separately inspect the process, listening port, client response, and server logs. I can now use Linux networking commands to locate connectivity problems more systematically.
+
+### Tomorrow
+
+Finish the Day06 notes, commit and push the work, create a Pull Request, and then continue with the next Linux module.
