@@ -1122,3 +1122,84 @@ I now understand network access as a layered process. An IP address identifies a
 ### Tomorrow
 
 Finish the Day06 notes, commit and push the work, create a Pull Request, and then continue with the next Linux module.
+
+
+# 2026-07-21
+
+### Goal
+
+Complete the Linux learning module by practicing SSH remote management, secure file transfer, and a complete Python application deployment workflow.
+
+### Minimum Success
+
+- Connect to a Linux environment through SSH.
+- Use SSH public-key authentication.
+- Transfer files and directories with SCP.
+- Deploy and test a Python Web application.
+- Diagnose at least one deployment problem.
+
+### Done
+
+- Installed and started the OpenSSH server.
+- Verified `ssh.service` and TCP port 22.
+- Connected to the Linux environment through SSH.
+- Learned the SSH client-server communication model.
+- Verified the server host key and `known_hosts`.
+- Generated an Ed25519 SSH key pair.
+- Installed the public key with `ssh-copy-id`.
+- Verified public-key authentication.
+- Checked SSH key and directory permissions.
+- Transferred files from local to remote and from remote to local.
+- Transferred directories recursively with `scp -r`.
+- Compared transferred files and directories with `cmp` and `diff`.
+- Created a Flask application with `/` and `/health` endpoints.
+- Created a local virtual environment and installed Flask.
+- Tested the application locally with `curl`.
+- Generated `requirements.txt`.
+- Uploaded the application to the remote deployment directory.
+- Created an independent remote virtual environment.
+- Installed and checked remote dependencies.
+- Started the application as a background process.
+- Saved the application PID and redirected logs.
+- Inspected the process with `ps` and `pgrep`.
+- Inspected the listening port with `ss`.
+- Tested the deployed service with `curl`.
+- Simulated and diagnosed a missing dependency.
+- Simulated and diagnosed a port conflict.
+- Simulated and diagnosed an application crash.
+- Stopped the deployed application and verified that port 8000 was released.
+- Created the final Linux learning notes.
+
+### Key Concepts
+
+- SSH means Secure Shell.
+- `ssh` is the client program, while `sshd` is the server daemon.
+- The SSH server normally listens on TCP port 22.
+- `known_hosts` stores trusted server identities.
+- `authorized_keys` stores public keys authorized to access an account.
+- A private key must remain on the client and must never be uploaded.
+- A public key can be installed on a remote server.
+- `scp` transfers files through SSH.
+- Local and remote virtual environments must be created independently.
+- `requirements.txt` makes the Python dependency environment reproducible.
+- A deployment must be checked at the process, log, socket, network, and HTTP layers.
+- Exit status `0` normally means success, while a non-zero status indicates failure or another exceptional condition.
+- Logs provide the most direct evidence when an application fails.
+- `ss` connects a listening port to the process that owns its socket.
+
+### Problems
+
+- Used `-c` instead of `-C` with `ssh-keygen`.
+- Used incorrect relative paths after entering the `transfer-demo` directory.
+- Misspelled `source` as `sourve`.
+- Tried to run `app.py` from a directory where the file did not exist.
+- Initially mixed the SSH-only task with the complete Linux final deployment Issue.
+- Initially tried to automate too many remote commands instead of using an interactive SSH Shell.
+
+### Reflection
+
+The complete deployment workflow connected the Linux concepts from previous days. A running service depends on correct files, permissions, Python dependencies, processes, logs, sockets, ports, and network access. SSH is not only a login command; it provides the secure channel used for remote management and file transfer. Troubleshooting becomes clearer when each layer is checked in order instead of guessing.
+
+### Tomorrow
+
+Start the SQL and database learning module after completing the GitHub Pull Request for Linux Day07.
