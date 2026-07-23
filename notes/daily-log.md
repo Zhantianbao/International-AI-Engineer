@@ -1496,3 +1496,107 @@ Start SQL Day03 and practice:
 - `HAVING`
 - grouped counts and summaries
 - aggregate queries with filtering and sorting
+
+
+---
+
+## 2026-07-23 — SQL Day03: Aggregation and Grouped Reports
+
+### Goal
+
+Use SQL aggregate functions and grouped queries to produce meaningful database statistics.
+
+### Done
+
+- Created the `sql/day03-aggregation` branch.
+- Created:
+  - `04-sql-database/day03-aggregation/queries.sql`
+  - `04-sql-database/day03-aggregation/notes.md`
+- Confirmed the `companies` table contained nine records.
+- Practiced:
+  - `COUNT`
+  - `SUM`
+  - `AVG`
+  - `MAX`
+  - `MIN`
+  - `DISTINCT`
+  - column aliases with `AS`
+- Counted all companies and distinct countries.
+- Calculated identifier summaries.
+- Calculated company-name length summaries.
+- Used nested functions such as:
+  - `AVG(LENGTH(name))`
+  - `SUM(LENGTH(name))`
+- Rounded aggregate results with `ROUND`.
+- Grouped data by:
+  - country
+  - remote-friendly status
+  - country and remote-friendly status together
+- Learned that multiple grouping columns form a combined grouping key.
+- Learned the rules for selecting normal columns in grouped queries.
+- Used `HAVING` to filter grouped results.
+- Compared `WHERE` and `HAVING`.
+- Combined:
+  - `WHERE`
+  - `GROUP BY`
+  - `HAVING`
+  - `ORDER BY`
+- Sorted report results with `ASC` and `DESC`.
+- Wrote thirteen useful report queries, exceeding the minimum requirement of eight.
+- Stored the verified queries in `queries.sql`.
+- Created detailed Day03 notes.
+
+### Key Concepts
+
+- Aggregate functions summarize multiple records.
+- `COUNT(*)` counts selected rows.
+- `COUNT(DISTINCT column)` counts unique non-null values.
+- `DISTINCT` over multiple columns removes duplicate column combinations.
+- `AS` creates a temporary result-column alias.
+- `GROUP BY` creates categories of records.
+- Multiple grouping columns create a combined grouping key.
+- A selected expression in a grouped query must normally be grouped or aggregated.
+- `WHERE` filters records before grouping.
+- `HAVING` filters groups after aggregation.
+- Without `GROUP BY`, an aggregate query may treat the complete result as one implicit group.
+- Report queries answer meaningful statistical questions instead of only displaying raw records.
+- `ORDER BY ... DESC` places the largest values first.
+
+### Errors and Discoveries
+
+- Ran `git branch` outside the repository and received `not a git repository`.
+- Entered `queries.sql` as though it were a Shell command.
+- Misspelled:
+  - `ORDER` as `DRDER`
+  - `FROM` as `FORM`
+  - `companies` as `companiess`
+  - `country` as `county`
+- Accidentally pasted the `psql` prompt and terminal control text into SQL input.
+- Learned to clear malformed unfinished input with `Ctrl + C`.
+- Learned that adding a unique `company_id` to `GROUP BY` creates one-row groups and makes `COUNT(*)` equal to one.
+
+### Reports Completed
+
+- Total company count.
+- Distinct-country list.
+- Distinct-country count.
+- Identifier summary.
+- Company-name length summary.
+- Company count by country.
+- Company count by remote status.
+- Company count by country and remote status.
+- Countries with at least two companies.
+- Remote-friendly company count by country.
+- Country-level name-length statistics.
+- Countries filtered by average name length.
+- Distinct-country count by remote status.
+
+### Reflection
+
+Today I moved from retrieving individual records to producing analytical summaries. The most important concept was that grouping changes the meaning of a result row: one output row may represent many original database records.
+
+I also learned that `WHERE` and `HAVING` operate at different stages. `WHERE` controls which records enter the grouping process, while `HAVING` controls which completed groups remain in the report.
+
+### Next
+
+Start SQL Day04 and practise database schema design, relationships, keys, and data modelling.
