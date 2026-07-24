@@ -1600,3 +1600,146 @@ I also learned that `WHERE` and `HAVING` operate at different stages. `WHERE` co
 ### Next
 
 Start SQL Day04 and practise database schema design, relationships, keys, and data modelling.
+
+
+---
+
+## 2026-07-24 — SQL Day04: Relational Data Modeling
+
+### Goal
+
+Design and build the complete relational database schema for the AI Internship Tracker project.
+
+### Completed
+
+- Created the `sql/day04-data-modeling` branch.
+- Created the Day04 directory and files:
+  - `schema.sql`
+  - `seed.sql`
+  - `notes.md`
+- Created the `ai_internship_tracker` PostgreSQL database.
+- Identified five project tables:
+  - `companies`
+  - `positions`
+  - `applications`
+  - `skills`
+  - `position_skills`
+- Learned the difference between:
+  - entity
+  - table
+  - row
+  - column
+- Learned the basic purpose of:
+  - primary keys
+  - foreign keys
+  - unique constraints
+  - check constraints
+  - default values
+- Modelled a one-to-many relationship:
+  - one company can have many positions
+- Modelled a one-to-zero-or-one relationship:
+  - one position can have at most one application
+- Modelled a many-to-many relationship:
+  - positions and skills are connected through `position_skills`
+- Used a combined primary key in the junction table.
+- Learned why comma-separated skills should not be stored in one position column.
+- Added named database constraints.
+- Used `BTRIM` to reject blank strings.
+- Used a regular-expression check for basic URL validation.
+- Compared `DATE` and `TIMESTAMPTZ`.
+- Used:
+  - `ON DELETE RESTRICT`
+  - `ON DELETE CASCADE`
+- Created a complete reproducible schema in `schema.sql`.
+- Created initial test data in `seed.sql`.
+- Tested valid inserts.
+- Tested invalid inserts and confirmed that constraints rejected them.
+- Used transactions and `ROLLBACK` for temporary tests.
+- Verified the final table and record counts.
+
+### Database Relationships
+
+```text
+companies 1 ──────< positions
+
+positions 1 ────── 0..1 applications
+
+positions N >──────< N skills
+             through
+        position_skills
+```
+
+### Important Concepts
+
+```text
+PRIMARY KEY
+→ uniquely identifies one row
+
+FOREIGN KEY
+→ references a row in another table
+
+UNIQUE
+→ prevents duplicate values or combinations
+
+CHECK
+→ rejects values that do not satisfy a condition
+
+DEFAULT
+→ supplies a value when none is provided
+```
+
+### Constraint Tests
+
+The database rejected:
+
+- duplicate company names
+- blank company names
+- invalid URL formats
+- positions referencing nonexistent companies
+- invalid remote types
+- duplicate job URLs
+- invalid application dates
+- duplicate applications for one position
+- duplicate position-skill combinations
+- deletion of a company that still had positions
+
+The database automatically removed dependent application and junction-table rows when a position was temporarily deleted inside a test transaction.
+
+### Honest Reflection
+
+Today I felt tired and did not have much energy for detailed study.
+
+I mostly followed the prepared workflow, copied the SQL, executed it, and observed the results. I did not deeply investigate every column, constraint, join, or transaction.
+
+Because of that, I should not treat Day04 as complete mastery.
+
+What I did accomplish was:
+
+```text
+I saw a complete relational schema.
+I successfully recreated the database.
+I inserted seed data.
+I observed valid and invalid operations.
+I learned the overall table relationships.
+```
+
+This was still useful first exposure.
+
+The practical deliverables were completed, while the detailed syntax and independent design decisions will need repetition in later database and backend tasks.
+
+Stopping after completing the planned workflow was better than forcing more low-quality study while exhausted.
+
+### Topics to Revisit
+
+- independently designing table columns
+- selecting suitable data types
+- choosing constraints from business requirements
+- writing foreign keys without a template
+- writing seed data with joins
+- transaction behavior
+- `RESTRICT` versus `CASCADE`
+- automatic handling of `updated_at`
+
+### Next
+
+Continue with the next SQL topic after rest, and reinforce Day04 concepts naturally when joins, backend models, and API database operations require them.
