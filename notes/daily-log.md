@@ -1743,3 +1743,116 @@ Stopping after completing the planned workflow was better than forcing more low-
 ### Next
 
 Continue with the next SQL topic after rest, and reinforce Day04 concepts naturally when joins, backend models, and API database operations require them.
+
+
+---
+
+## 2026-08-07 — SQL Day05: Joins, Subqueries, and CTEs
+
+### Goal
+
+Retrieve useful information from multiple related tables in the AI Internship Tracker database.
+
+### Completed
+
+- Resumed SQL study after a break.
+- Reviewed the AI Internship Tracker database and its table relationships.
+- Practised `INNER JOIN`.
+- Practised `LEFT JOIN`.
+- Used table aliases with `AS`.
+- Understood the purpose of `ON` join conditions.
+- Joined three tables:
+  - applications
+  - positions
+  - companies
+- Joined the many-to-many position-skill relationship through `position_skills`.
+- Found positions without applications.
+- Combined `JOIN`, `GROUP BY`, and `COUNT`.
+- Counted applications for each company.
+- Learned why `COUNT(column)` is important with `LEFT JOIN`.
+- Deliberately created an incorrect JOIN and observed duplicated rows.
+- Used `GROUP BY` and `HAVING` to detect duplicated business combinations.
+- Corrected the JOIN condition.
+- Practised a correlated subquery.
+- Used `NOT EXISTS`.
+- Learned the purpose of `SELECT 1` inside `EXISTS`.
+- Practised a Common Table Expression (`CTE`).
+- Used a scalar subquery with `MAX`.
+- Found all companies tied for the highest application count.
+- Saved the Day05 queries in `queries.sql`.
+- Created Day05 notes.
+
+### Key Relationships
+
+```text
+companies
+→ positions through company_id
+
+positions
+→ applications through position_id
+
+positions
+→ position_skills through position_id
+
+position_skills
+→ skills through skill_id
+```
+
+### Key Ideas
+
+```text
+INNER JOIN
+→ keep matched rows only
+
+LEFT JOIN
+→ keep every left-table row
+
+ON
+→ define how rows from two tables match
+
+GROUP BY
+→ divide rows into categories for aggregation
+
+NOT EXISTS
+→ keep rows for which the subquery finds no match
+
+CTE
+→ give a query result a temporary name within one SQL statement
+```
+
+### Important Discovery
+
+A JOIN can produce duplicated or completely incorrect rows even when the source tables themselves contain no duplicates.
+
+The JOIN condition must connect the newly joined table through the real relationship.
+
+For the position-skill relationship:
+
+```text
+positions.position_id
+=
+position_skills.position_id
+
+position_skills.skill_id
+=
+skills.skill_id
+```
+
+### Current Project Result
+
+The database can now answer questions involving several related tables, including:
+
+- which company owns each position
+- which positions have applications
+- which positions have no applications
+- which skills belong to each position
+- how many applications each company has
+- which companies have the most applications
+
+### Reflection
+
+This session focused heavily on understanding the reasoning behind JOINs rather than only copying queries.
+
+I reviewed concepts that had become less familiar after the study break and rebuilt the connection between foreign keys, table relationships, JOIN conditions, grouping, subqueries, and CTEs.
+
+Some syntax still requires repetition, but the overall data-flow model is clearer than before.
