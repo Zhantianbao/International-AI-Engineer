@@ -1856,3 +1856,202 @@ This session focused heavily on understanding the reasoning behind JOINs rather 
 I reviewed concepts that had become less familiar after the study break and rebuilt the connection between foreign keys, table relationships, JOIN conditions, grouping, subqueries, and CTEs.
 
 Some syntax still requires repetition, but the overall data-flow model is clearer than before.
+
+
+---
+
+## 2026-08-08 — SQL Day06: Transactions, Indexes, and PostgreSQL Administration
+
+### Goal
+
+Understand database reliability and performance, and practise basic PostgreSQL administration.
+
+### Completed
+
+- Practised explicit PostgreSQL transactions with:
+  - `BEGIN`
+  - `COMMIT`
+  - `ROLLBACK`
+- Verified that committed changes remain and rolled-back changes disappear.
+- Observed PostgreSQL transaction failure behavior after an SQL error.
+- Learned the basic ACID properties:
+  - Atomicity
+  - Consistency
+  - Isolation
+  - Durability
+- Reviewed PostgreSQL indexes created automatically for:
+  - `PRIMARY KEY`
+  - `UNIQUE`
+- Created and removed a custom index on `positions.title`.
+- Used `EXPLAIN`.
+- Used `EXPLAIN ANALYZE`.
+- Compared `Seq Scan` and `Index Scan`.
+- Inserted temporary large-volume test data to make the index comparison observable.
+- Used `ANALYZE` to refresh optimizer statistics.
+- Learned the benefits and costs of indexes.
+- Reviewed PostgreSQL roles and users.
+- Created a restricted `NOLOGIN` role.
+- Practised:
+  - `GRANT`
+  - `REVOKE`
+  - `SET ROLE`
+  - `RESET ROLE`
+- Verified that a role with only `SELECT` permission could read but could not insert data.
+- Inspected the PostgreSQL service with `systemctl`.
+- Inspected PostgreSQL processes with `ps`.
+- Inspected TCP port `5432` with `ss`.
+- Inspected PostgreSQL configuration with `SHOW`.
+- Inspected PostgreSQL server logs.
+- Inspected systemd journal entries for PostgreSQL.
+- Created a plain SQL database backup with `pg_dump`.
+- Restored the backup into a separate test database.
+- Verified all restored tables and row counts.
+- Removed the temporary restore-test database after verification.
+
+### Transaction Model
+
+```text
+BEGIN
+→ start a transaction
+
+COMMIT
+→ keep all successful changes
+
+ROLLBACK
+→ cancel uncommitted changes
+```
+
+An error inside an explicit PostgreSQL transaction causes the transaction to enter an aborted state until it is rolled back.
+
+### ACID
+
+```text
+A — Atomicity
+→ all or nothing
+
+C — Consistency
+→ preserve database rules
+
+I — Isolation
+→ control interaction between concurrent transactions
+
+D — Durability
+→ committed changes persist
+```
+
+### Index Experiment
+
+Without the custom index:
+
+```text
+Seq Scan on positions
+Rows Removed by Filter: 50002
+Execution Time: approximately 2.874 ms
+```
+
+With:
+
+```sql
+CREATE INDEX idx_positions_title
+ON positions (title);
+```
+
+the rare-value query used:
+
+```text
+Index Scan using idx_positions_title
+Execution Time: approximately 0.040 ms
+```
+
+The exact speed difference is specific to this experiment.
+
+The important lesson is:
+
+```text
+index exists
+≠
+PostgreSQL must use it
+```
+
+The optimizer chooses the execution plan according to estimated cost.
+
+### PostgreSQL Administration
+
+The running PostgreSQL installation was inspected at several levels:
+
+```text
+systemctl
+→ service status
+
+ps
+→ operating-system processes
+
+ss
+→ listening TCP sockets
+
+SHOW
+→ PostgreSQL runtime configuration
+
+PostgreSQL log
+→ database errors and statements
+
+journalctl
+→ systemd service events
+```
+
+The server was listening on:
+
+```text
+127.0.0.1:5432
+```
+
+### Roles and Privileges
+
+A temporary role named:
+
+```text
+day06_reader
+```
+
+was granted:
+
+```text
+USAGE on schema public
+SELECT on table positions
+```
+
+It could successfully query `positions`, but an `INSERT` failed with:
+
+```text
+permission denied for table positions
+```
+
+The privileges were later revoked and the temporary role was deleted.
+
+### Backup and Restore
+
+Backup:
+
+```text
+ai_internship_tracker
+→ pg_dump
+→ ai_internship_tracker_backup.sql
+```
+
+Restore verification:
+
+```text
+companies        3
+positions        3
+applications     2
+skills           6
+position_skills  9
+```
+
+The restored counts matched the original database.
+
+### Reflection
+
+This Day06 task was completed as a catch-up session.
+
+The most important change in understanding was moving beyond writing SQL queries and seeing PostgreSQL as a complete database system with transaction guarantees, query planning, access control, operating-system processes, logs, and recovery procedures.
