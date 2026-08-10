@@ -2055,3 +2055,68 @@ The restored counts matched the original database.
 This Day06 task was completed as a catch-up session.
 
 The most important change in understanding was moving beyond writing SQL queries and seeing PostgreSQL as a complete database system with transaction guarantees, query planning, access control, operating-system processes, logs, and recovery procedures.
+
+
+# Day07 Daily Log — Python + PostgreSQL
+
+## Date
+
+2026-08-10
+
+## Goal
+
+Connect Python to PostgreSQL and build a command-line AI Internship Tracker.
+
+## Completed
+
+- Created and activated a Python virtual environment
+- Installed Psycopg 3
+- Configured PostgreSQL credentials with environment variables
+- Created a dedicated PostgreSQL application role
+- Connected Python to PostgreSQL
+- Executed parameterized SELECT queries
+- Used `fetchone()` and `fetchall()`
+- Practiced explicit COMMIT and ROLLBACK
+- Tested PostgreSQL transaction behavior
+- Handled Psycopg database exceptions
+- Tested primary key and foreign key violations
+- Used PostgreSQL `RETURNING`
+- Implemented a repository layer
+- Added company creation
+- Added position creation
+- Added application creation
+- Added application status updates
+- Added application listing
+- Added status filtering
+- Added summary statistics
+- Built an interactive CLI
+- Separated CLI logic from database logic
+- Added input and database error handling
+- Added `requirements.txt`
+- Added `.env.example`
+- Added `schema.sql`, `seed.sql`, and `queries.sql`
+- Added project README
+- Verified Python syntax with `py_compile`
+- Verified `.env`, `.venv`, and `__pycache__` are ignored by Git
+
+## Key Concepts
+
+- Psycopg 3
+- PostgreSQL connection and cursor
+- Environment variables
+- Parameterized SQL
+- SQL injection prevention
+- Transactions
+- COMMIT and ROLLBACK
+- Connection context managers
+- PostgreSQL `RETURNING`
+- Foreign key integrity
+- Python exception handling
+- Repository pattern
+- CLI architecture
+- Dependency management
+- Secret management
+
+## Result
+
+Built a working Python + PostgreSQL CLI application for tracking AI internship companies, positions, and applications.
