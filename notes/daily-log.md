@@ -2181,7 +2181,7 @@ FastAPI became much easier to understand after separating the responsibilities o
 
 Continue with Pydantic and API contracts, including request models, response models, validation, serialization, and `response_model`.
 
-# 2026-09-02
+# 2026-09-01
 
 ### Goal
 
