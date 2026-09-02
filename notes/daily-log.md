@@ -2120,3 +2120,78 @@ Connect Python to PostgreSQL and build a command-line AI Internship Tracker.
 ## Result
 
 Built a working Python + PostgreSQL CLI application for tracking AI internship companies, positions, and applications.
+
+# 2026-09-02
+
+### Goal
+
+Complete FastAPI Day02 by learning how Pydantic defines and enforces API data contracts for request and response data.
+
+### Minimum Success
+
+- Understand Pydantic `BaseModel`
+- Accept request bodies with Pydantic models
+- Understand request validation
+- Separate request and response schemas
+- Use `response_model`
+- Understand validation and serialization
+
+### Done
+
+- Created `CompanyCreate`, `PositionCreate`, and `ApplicationCreate`
+- Created separate response schemas
+- Used Pydantic models as FastAPI request bodies
+- Tested required, nullable, default, and omitted fields
+- Observed automatic type parsing and conversion
+- Tested invalid integer input
+- Used `Field()` with `gt` and `min_length`
+- Observed multiple validation errors in one response
+- Tested malformed JSON and observed `json_invalid`
+- Used `response_model` on all three main POST endpoints
+- Verified response filtering with an extra internal field
+- Tested response validation failure and observed HTTP 500
+- Inspected generated schemas in Swagger UI and OpenAPI
+- Implemented temporary `POST /companies`, `POST /positions`, and `POST /applications`
+- Distinguished Pydantic validation from PostgreSQL constraints
+- Cleaned experimental models and endpoints from the final Day02 code
+- Completed Day02 notes
+
+### Key Concepts
+
+- Pydantic
+- `BaseModel`
+- request model
+- response model
+- API contract
+- schema
+- validation
+- serialization
+- deserialization
+- parsing
+- type coercion
+- required fields
+- nullable fields
+- default values
+- `Field()`
+- `response_model`
+- response filtering
+- response validation
+- OpenAPI
+- Swagger UI
+- Pydantic validation vs database constraints
+
+### Problems
+
+- Initially needed to distinguish nullable fields from fields that can be omitted.
+- Needed to understand that Pydantic may convert compatible input types such as `"1000"` to integer `1000`.
+- Needed to distinguish malformed JSON from valid JSON that violates a Pydantic schema.
+- Needed to distinguish request validation errors from server-side response validation errors.
+- Accidentally pasted example JSON directly into the shell once, causing `command not found` messages.
+
+### Reflection
+
+Pydantic models are not database tables. They define and validate structured data at the API boundary. FastAPI uses these models to transform HTTP request data into Python objects and to validate, filter, serialize, and document response data. Separating request and response schemas makes the API contract clearer and prevents fields that should remain internal from being exposed.
+
+### Tomorrow
+
+Start FastAPI Day03 and build REST CRUD behavior and HTTP error handling on top of the request and response contracts learned today.
