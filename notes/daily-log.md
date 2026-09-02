@@ -1,4 +1,4 @@
-Python Learning Log
+Learning Log
 
 ## 2026-07-04
 
@@ -2120,6 +2120,66 @@ Connect Python to PostgreSQL and build a command-line AI Internship Tracker.
 ## Result
 
 Built a working Python + PostgreSQL CLI application for tracking AI internship companies, positions, and applications.
+
+# 2026-08-31
+
+### Goal
+
+Understand how an HTTP request reaches a FastAPI path operation and build the first FastAPI service.
+
+### Minimum Success
+
+Run a FastAPI application with Uvicorn, create basic GET and POST path operations, and understand the request flow from the client to the endpoint function.
+
+### Done
+
+- Created the first FastAPI application with `FastAPI()`.
+- Learned the difference between FastAPI and Uvicorn.
+- Reviewed Python decorator syntax and understood how FastAPI uses decorators for route registration.
+- Created `GET /health`.
+- Created a path parameter endpoint with `/applications/{application_id}`.
+- Created a query parameter endpoint with `/applications?status=...`.
+- Observed FastAPI converting path parameters according to Python type annotations.
+- Verified that invalid integer input returns a 422 validation error before the endpoint function runs.
+- Created a simple `POST /applications` endpoint.
+- Tested endpoints with `curl`.
+- Used Swagger UI at `/docs`.
+- Inspected the generated OpenAPI schema at `/openapi.json`.
+- Understood the request flow through Uvicorn, ASGI, FastAPI routing, parameter validation, and the path operation function.
+
+### Key Concepts
+
+- FastAPI application object
+- Uvicorn
+- ASGI
+- route registration
+- Python decorators
+- path operations
+- path parameters
+- query parameters
+- type annotations
+- automatic type conversion
+- request validation
+- HTTP 200 and 422 responses
+- OpenAPI
+- Swagger UI
+- development reload mode
+- complete HTTP request lifecycle
+
+### Problems
+
+- Initially registered the health route as `health` instead of `/health`, which caused a 404 response.
+- Needed additional review of Python decorator syntax before FastAPI routing became clear.
+- Clarified the roles of IP addresses, ports, URL paths, HTTP versus HTTPS, and curl.
+- Clarified that the Day01 POST endpoint demonstrates routing but does not yet create persistent data.
+
+### Reflection
+
+FastAPI became much easier to understand after separating the responsibilities of Uvicorn, ASGI, FastAPI, the router, and the endpoint function. The decorator syntax was initially confusing, but understanding functions as objects and decorators as function transformations made `@app.get()` much clearer. The parameter validation experiment also showed that FastAPI processes and validates request data before calling the endpoint function.
+
+### Tomorrow
+
+Continue with Pydantic and API contracts, including request models, response models, validation, serialization, and `response_model`.
 
 # 2026-09-02
 
